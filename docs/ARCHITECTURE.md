@@ -1,6 +1,6 @@
 # Architektur und Datenhoheit
 
-**Status:** Technischer Entwurf, noch nicht implementiert.
+**Status:** M0 Browser-Adapter implementiert; LAN-Sync und Vue-Frontend weiterhin Entwurf (26.11.2026).
 
 ## Komponenten
 
@@ -29,8 +29,8 @@ Chrome-PC 1                         Chrome-PC 2
 
 ### Dashboard und LAN-Synchronisierung
 
-- Dashboard als vollwertiger Chrome-Extension-Tab (Vue 3 / Vite) statt einer externen Public Page. Nachrichten zwischen Dashboard und MV3-Hintergrunddienst über `chrome.runtime`.
-- Hintergrunddienst überträgt ausschließlich minimierte Daten zum CB-LINUX-API-Endpunkt. Für einen frei konfigurierbaren LAN-Host werden Berechtigungen gezielt zur Laufzeit angefragt; keine pauschalen Site-Zugriffe im Normalbetrieb.
+- M0-Dashboard als vollwertiger Chrome-Extension-Tab mit dependency-freiem HTML/CSS/JavaScript. Nachrichten zum MV3-Hintergrunddienst über `chrome.runtime`. Vue 3/TypeScript/Vite bleibt die Zieloption für die umfangreichere UI nach dem technischen Praxistest.
+- **M0:** Daten bleiben ausschließlich in `chrome.storage.local`, kein LAN-Aufruf. **Ab M1:** Hintergrunddienst überträgt minimierte Daten zum CB-LINUX-API-Endpunkt. Berechtigungen für einen LAN-Host werden gezielt angefragt.
 - FastAPI mit SQLite (`WAL` bei Bedarf), persistente Docker-Volume-/Bind-Mount-Daten. Zunächst ein zentraler Server, kein Multi-Master.
 - **HTTPS empfohlen/erforderlich für echte Authentifizierungsinformationen**; bevorzugt lokaler Reverse Proxy mit intern vertrauenswürdigem Zertifikat. Nicht von LAN-Segmentierung allein auf ausreichende Vertraulichkeit schließen.
 - Zugriffsrecht über einen authentifizierten API-Zugang; keine Zugangsdaten im Frontend-Bundle/Git. Auf PC lokal gehaltene Anmeldedaten nicht automatisch per Chrome Sync replizieren.
