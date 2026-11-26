@@ -1,15 +1,18 @@
 # MVP-Plan
 
-**Status:** Entwurf, 26.11.2026
+**Status:** M0 implementiert, automatisierte Tests; Chrome-Echtabnahme steht aus (26.11.2026)
 
 ## M0 – sichere technische Basis
 
-- Repo-Aufbau und Minimal-Build für MV3 + Vue 3/TypeScript sowie FastAPI erstellen.
-- PoC: Authentifizierten ChatGPT-Tab erkennen; Projekte über die bereits beobachtete Sidebar-Anfrage **lesend** holen.
-- Ergebnisse mit synthetischen Fixtures testbar machen; keine privaten Daten in Git.
-- Nachweisen, dass die Bereinigung der API-Antwort keine Gesprächs-/Sitzungsinhalte transportiert.
+- [x] Manifest-V3-Erweiterung mit eigenem Dashboard-Tab (HTML/CSS/JavaScript ohne Build-Schritt) implementieren.
+- [x] Angemeldeten ChatGPT-Tab erkennen und die Projekt-Sidebar-Liste mit Pagination **lesend** holen.
+- [x] Projekte anhand stabiler IDs validieren, Daten whitelisten und vollständige Snapshots lokal speichern.
+- [x] Synthetische Tests für Pagination, Datenschutz, gleichnamige Projekte und Fehlerfälle ausführen.
+- [x] Filter, lokale JSON-Import-/Export-Funktionen, Statusanzeige und Installationsanleitung erstellen.
+- [ ] **Praxisabnahme** im tatsächlich angemeldeten Chrome-Webchat (inkl. möglicher geänderter API-Header/Authentifizierung).
+- [ ] Nach erfolgreicher Abnahme Vue-3-/TypeScript-Migration der Dashboard-Oberfläche abwägen.
 
-**Abnahme:** Installation als entpackte Chrome-Erweiterung; Projekttabelle im eigenen Tab; sauberer Fehlerfall ohne Anmeldung/API-Zugriff.
+**Abnahme:** Installation als entpackte Chrome-Erweiterung; Projekttabelle im eigenen Tab; sauberer Fehlerfall ohne Anmeldung/API-Zugriff. Der Live-Praxistest ist noch offen. Details: [M0-Implementierung](M0-IMPLEMENTATION.md).
 
 ## M1 – Datenpersistenz und Synchronisierung
 
