@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>ChatGPT Cockpit</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./dashboard.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-icon" aria-hidden="true">◈</span>
+      <div><div class="eyebrow">Lokale Erweiterung · M0</div><h1>ChatGPT Cockpit</h1></div>
+    </div>
+    <div class="header-actions">
+      <button id="open-chatgpt" class="subtle" type="button">ChatGPT öffnen</button>
+      <button id="refresh" class="primary" type="button">Projekte aktualisieren</button>
+    </div>
+  </header>
+  <main>
+    <section class="intro" aria-label="Datenquelle">
+      <div>
+        <h2>Projektübersicht</h2>
+        <p>Projekte aus deinem angemeldeten ChatGPT-Tab, lokal im Browser gespeichert. Kein Upload und noch keine LAN-Synchronisation.</p>
+      </div>
+      <div id="status" class="notice" role="status" aria-live="polite">Gespeicherten Stand laden …</div>
+    </section>
+    <section class="metrics" aria-label="Statistik">
+      <div class="metric"><div class="metric-label">Projekte</div><strong id="project-count">–</strong></div>
+      <div class="metric"><div class="metric-label">API-Seiten</div><strong id="page-count">–</strong></div>
+      <div class="metric"><div class="metric-label">Letzter Import</div><strong id="captured-at" class="metric-date">–</strong></div>
+      <div class="metric"><div class="metric-label">Quelle</div><strong id="source-label" class="metric-date">–</strong></div>
+    </section>
+    <section class="panel" aria-label="Projekte">
+      <div class="panel-toolbar">
+        <label class="search-label" for="search">Projekt suchen
+          <input id="search" type="search" placeholder="Name oder Projekt-ID filtern …" autocomplete="off">
+        </label>
+        <span id="filter-count" class="small" aria-live="polite">–</span>
+        <div class="import-export">
+          <button id="export" type="button" class="subtle" disabled>JSON exportieren</button>
+          <label for="import-file" class="file-button">JSON importieren</label>
+          <input id="import-file" type="file" accept=".json,application/json" aria-label="Projektliste aus JSON importieren">
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Projekt</th><th>Projekt-ID</th><th>Aktualisiert in ChatGPT</th></tr></thead>
+          <tbody id="project-list"><tr><td colspan="3" class="empty">Noch keine Projekte geladen.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <p class="footnote">
+      Die ChatGPT-Schnittstelle ist intern und kann sich ändern. Es werden ausschließlich Projekt-ID,
+      Name und Zeitstempel erfasst. Chat-Inhalte, Projektanweisungen und Sitzungstokens bleiben ausgeschlossen.
+    </p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "chatgpt-cockpit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Chrome MV3 ChatGPT project cockpit (M0)",
+  "scripts": {
+    "test": "node --test extension/tests/*.test.mjs",
+    "check": "npm test && node --check extension/background.js && node --check extension/dashboard.js && node --check extension/snapshot.js"
+  }
+}

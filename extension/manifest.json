@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Cockpit",
+  "short_name": "ChatGPT Cockpit",
+  "version": "0.1.0",
+  "minimum_chrome_version": "120",
+  "description": "Lokale Übersicht der ChatGPT-Projekte; Metadaten nur nach manuellem Abruf.",
+  "permissions": ["scripting", "storage"],
+  "host_permissions": ["https://chatgpt.com/*"],
+  "action": {"default_title": "ChatGPT Cockpit öffnen"},
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}

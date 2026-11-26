@@ -1,0 +1,23 @@
+name: Chrome extension checks
+on:
+  push:
+    paths:
+      - 'extension/**'
+      - 'package.json'
+      - '.github/workflows/extension-checks.yml'
+  pull_request:
+    paths:
+      - 'extension/**'
+      - 'package.json'
+      - '.github/workflows/extension-checks.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm run check
+      - name: Validate manifest
+        run: node -e "const m=require('./extension/manifest.json');if(m.manifest_version!==3||!m.host_permissions.includes('https://chatgpt.com/*'))process.exit(1)"
