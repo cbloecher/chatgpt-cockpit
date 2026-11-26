@@ -1,0 +1,28 @@
+# Secrets, recordings, exports and local data
+.env
+.env.*
+!.env.example
+*.har
+chatgpt-projects-*.json
+chatgpt-projects-*.csv
+session*.json
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+data/
+backups/
+secrets/
+# JS/Python
+node_modules/
+dist/
+*.tsbuildinfo
+__pycache__/
+.pytest_cache/
+.venv/
+*.py[cod]
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
